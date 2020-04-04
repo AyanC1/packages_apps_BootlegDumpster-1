@@ -20,6 +20,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.Settings;
+
+import com.stag.horns.preferences.SystemSettingMasterSwitchPreference;
 import com.android.settings.R;
 
 import java.util.Arrays;
@@ -30,6 +32,8 @@ import com.android.settings.SettingsPreferenceFragment;
 public class MiscSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+
+    private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -45,11 +49,20 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         if (!enableSmartPixels){
             overallPreferences.removePreference(smartPixelsPref);
         }
+        mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
+        mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.GAMING_MODE_ENABLED, 0) == 1));
+        mGamingMode.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
+	if (preference == mGamingMode) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
+            return true;
         switch (preference.getKey()) {
             default:
                 return false;
