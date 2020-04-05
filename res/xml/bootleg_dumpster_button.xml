@@ -53,7 +53,6 @@
             android:summary="@string/button_backlight_on_touch_only_summary"
             android:defaultValue="false" />
 
-    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="back_key"
@@ -171,5 +170,7 @@
             android:summary="@string/hardware_keys_double_tap_summary"
             android:title="@string/hardware_keys_double_tap_title" >
         </com.bootleggers.dumpster.preferences.ActionPreference>
+
+    </PreferenceCategory>
 
 </PreferenceScreen>

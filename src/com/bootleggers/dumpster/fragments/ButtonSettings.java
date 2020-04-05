@@ -160,7 +160,7 @@ public class ButtonSettings extends ActionFragment  implements
         // back key
         if (!hasBackKey) {
             prefScreen.removePreference(backCategory);
-
+		}
         // home key
         if (!hasHomeKey) {
             prefScreen.removePreference(homeCategory);
@@ -236,3 +236,4 @@ public class ButtonSettings extends ActionFragment  implements
     }
 
 }
+
