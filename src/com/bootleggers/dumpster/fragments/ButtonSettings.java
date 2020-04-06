@@ -70,7 +70,7 @@ public class ButtonSettings extends ActionFragment implements
     public static final int KEY_MASK_VOLUME = 0x40;
 
     private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
-
+    private SwitchPreference mHwKeyDisable;
     private ListPreference mTorchPowerButton;
 
 
