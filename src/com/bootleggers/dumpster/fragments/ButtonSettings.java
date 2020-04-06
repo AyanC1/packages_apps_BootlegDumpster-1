@@ -37,16 +37,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
+
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 
 import com.bootleggers.dumpster.preferences.ActionFragment;
 import com.bootleggers.dumpster.preferences.CustomSeekBarPreference;
 
-public class ButtonSettings extends ActionFragment  implements
+public class ButtonSettings extends ActionFragment implements
     Preference.OnPreferenceChangeListener {
-
-    private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
 
@@ -70,8 +69,10 @@ public class ButtonSettings extends ActionFragment  implements
     public static final int KEY_MASK_CAMERA = 0x20;
     public static final int KEY_MASK_VOLUME = 0x40;
 
-    private SwitchPreference mHwKeyDisable;
+    private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
+
     private ListPreference mTorchPowerButton;
+
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -80,7 +81,8 @@ public class ButtonSettings extends ActionFragment  implements
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
- final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+
+        final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         final PreferenceCategory hwkeyCat = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_HWKEY);
         int keysDisabled = 0;
@@ -91,49 +93,11 @@ public class ButtonSettings extends ActionFragment  implements
                     UserHandle.USER_CURRENT);
             mHwKeyDisable.setChecked(keysDisabled != 0);
             mHwKeyDisable.setOnPreferenceChangeListener(this);
-
-            final boolean variableBrightness = getResources().getBoolean(
-                    com.android.internal.R.bool.config_deviceHasVariableButtonBrightness);
-
-            mBacklightTimeout =
-                    (ListPreference) findPreference(KEY_BACKLIGHT_TIMEOUT);
-
-            mButtonBrightness =
-                    (CustomSeekBarPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
-
-            mButtonBrightness_sw =
-                    (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS_SW);
-
-                if (mBacklightTimeout != null) {
-                    mBacklightTimeout.setOnPreferenceChangeListener(this);
-                    int BacklightTimeout = Settings.System.getInt(getContentResolver(),
-                            Settings.System.BUTTON_BACKLIGHT_TIMEOUT, 5000);
-                    mBacklightTimeout.setValue(Integer.toString(BacklightTimeout));
-                    mBacklightTimeout.setSummary(mBacklightTimeout.getEntry());
-                }
-
-                if (variableBrightness) {
-                    hwkeyCat.removePreference(mButtonBrightness_sw);
-                    if (mButtonBrightness != null) {
-                        int ButtonBrightness = Settings.System.getInt(getContentResolver(),
-                                Settings.System.BUTTON_BRIGHTNESS, 255);
-                        mButtonBrightness.setValue(ButtonBrightness / 1);
-                        mButtonBrightness.setOnPreferenceChangeListener(this);
-                    }
-                } else {
-                    hwkeyCat.removePreference(mButtonBrightness);
-                    if (mButtonBrightness_sw != null) {
-                        mButtonBrightness_sw.setChecked((Settings.System.getInt(getContentResolver(),
-                                Settings.System.BUTTON_BRIGHTNESS, 1) == 1));
-                        mButtonBrightness_sw.setOnPreferenceChangeListener(this);
-                    }
-                }
-        } else {
-
+        }else{
             prefScreen.removePreference(hwkeyCat);
-        }
+	}
 
-        // bits for hardware keys present on device
+// bits for hardware keys present on device
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
 
@@ -160,7 +124,8 @@ public class ButtonSettings extends ActionFragment  implements
         // back key
         if (!hasBackKey) {
             prefScreen.removePreference(backCategory);
-		}
+        }
+
         // home key
         if (!hasHomeKey) {
             prefScreen.removePreference(homeCategory);
@@ -187,13 +152,14 @@ public class ButtonSettings extends ActionFragment  implements
         // load preferences first
         setActionPreferencesEnabled(keysDisabled == 0);
 
+
         mTorchPowerButton = (ListPreference) findPreference(TORCH_POWER_BUTTON_GESTURE);
         int mTorchPowerButtonValue = Settings.Secure.getInt(resolver,
                 Settings.Secure.TORCH_POWER_BUTTON_GESTURE, 0);
         mTorchPowerButton.setValue(Integer.toString(mTorchPowerButtonValue));
         mTorchPowerButton.setSummary(mTorchPowerButton.getEntry());
         mTorchPowerButton.setOnPreferenceChangeListener(this);
-    }
+     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -229,11 +195,9 @@ public class ButtonSettings extends ActionFragment  implements
         return true;
     }
 
-
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.BOOTLEG;
     }
 
 }
-
