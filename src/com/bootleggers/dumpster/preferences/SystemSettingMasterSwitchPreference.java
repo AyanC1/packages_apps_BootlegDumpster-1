@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.bootleggers.dumpster.preference;
+package com.bootleggers.dumpster.preferences;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.bootleggers.dumpster.preference.SystemSettingsStore;
+import com.bootleggers.dumpster.preferences.SystemSettingsStore;
 
 public class SystemSettingMasterSwitchPreference extends MasterSwitchPreference {
 

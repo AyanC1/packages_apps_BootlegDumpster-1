@@ -16,25 +16,25 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/gaming_mode_title">
 
-    <com.bootleggers.dumpster.preference.SystemSettingSwitchPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_headsup_toggle"
         android:title="@string/gaming_mode_headsup_title"
         android:summary="@string/gaming_mode_headsup_summary"
         android:defaultValue="true" />
 
-    <com.bootleggers.dumpster.preference.SystemSettingSwitchPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_hw_keys_toggle"
         android:title="@string/gaming_mode_hardware_keys_title"
         android:summary="@string/gaming_mode_hardware_keys_summary"
         android:defaultValue="false" />
 
-    <com.bootleggers.dumpster.preference.SystemSettingSwitchPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_manual_brightness_toggle"
         android:title="@string/gaming_mode_brightness_title"
         android:summary="@string/gaming_mode_brightness_summary"
         android:defaultValue="true" />
 
-    <com.bootleggers.dumpster.preference.SystemSettingListPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingListPreference
         android:key="gaming_mode_ringer_mode"
         android:title="@string/gaming_mode_ringer_title"
         android:entries="@array/gaming_mode_ringer_entries"
@@ -42,7 +42,7 @@
         android:defaultValue="0"
         android:summary="%s" />
 
-    <com.bootleggers.dumpster.preference.SystemSettingListPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingListPreference
         android:key="gaming_mode_notifications"
         android:title="@string/gaming_mode_notifications_title"
         android:entries="@array/gaming_mode_notifications_entries"
@@ -50,7 +50,7 @@
         android:defaultValue="3"
         android:summary="%s" />
 
-    <com.bootleggers.dumpster.preference.SystemSettingSwitchPreference
+    <com.bootleggers.dumpster.preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_dynamic_state"
         android:title="@string/gaming_mode_dynamic_title"
         android:summary="@string/gaming_mode_dynamic_summary"
