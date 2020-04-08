@@ -50,8 +50,8 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.bootleggers.dumpster.preference.PackageListAdapter;
-import com.bootleggers.dumpster.preference.PackageListAdapter.PackageItem;
+import com.bootleggers.dumpster.preferences.PackageListAdapter;
+import com.bootleggers.dumpster.preferences.PackageListAdapter.PackageItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;

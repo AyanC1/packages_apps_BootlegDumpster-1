@@ -19,10 +19,19 @@
     android:title="@string/system_category_title">
 
     <Preference
-        android:fragment="com.syberia.settings.fragments.GeneralTweaks"
+        android:fragment="com.bootleggers.dumpster.fragments.GeneralTweaks"
         android:icon="@drawable/ic_general_tweaks"
         android:key="general_tweaks"
         android:summary="@string/general_tweaks_summary"
         android:title="@string/general_tweaks_title" />
+
+    <com.bootleggers.dumpster.preferences.SystemSettingMasterSwitchPreference
+
+        android:key="gaming_mode_enabled"
+        android:icon="@drawable/ic_gaming"
+        android:fragment="com.bootleggers.dumpster.fragments.GamingMode"
+        android:title="@string/gaming_mode_title"
+        android:summary="@string/gaming_mode_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>

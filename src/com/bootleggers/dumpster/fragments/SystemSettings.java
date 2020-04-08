@@ -35,14 +35,12 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 
-import com.bootleggers.dumpster.preference.SystemSettingMasterSwitchPreference;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-import com.bootleggers.dumpster.preference.SystemSettingMasterSwitchPreference;
+import com.bootleggers.dumpster.preferences.SystemSettingMasterSwitchPreference;
 
 public class SystemSettings extends SettingsPreferenceFragment implements OnPreferenceChangeListener, Indexable {
 

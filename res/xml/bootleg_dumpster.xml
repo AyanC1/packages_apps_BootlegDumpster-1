@@ -113,6 +113,13 @@
             android:fragment="com.bootleggers.dumpster.fragments.AboutBootleggers"
             android:icon="@drawable/ic_settings_bootlegdump_alt"/>
 
+    <PreferenceScreen
+        android:fragment="com.bootleggers.dumpster.fragments.SystemSettings"
+        android:icon="@drawable/ic_system_category"
+        android:key="system_category"
+        android:summary="@string/system_category_summary"
+        android:title="@string/system_category_title" />
+
 
     <com.bootleggers.dumpster.preference.SystemSettingMasterSwitchPreference
         android:key="gaming_mode_enabled"

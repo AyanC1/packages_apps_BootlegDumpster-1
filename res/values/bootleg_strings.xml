@@ -579,4 +579,7 @@
     <string name="gaming_mode_dynamic_title">Dynamic mode</string>
     <string name="gaming_mode_dynamic_summary">Try detecting and adding gaming apps automatically</string>
 
+
+    <string name="system_category_title">System</string>
+    <string name="system_category_summary">Various system extensions</string>
 </resources>
