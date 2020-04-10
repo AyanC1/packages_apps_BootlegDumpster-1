@@ -119,18 +119,5 @@
         android:key="system_category"
         android:summary="@string/system_category_summary"
         android:title="@string/system_category_title" />
-<<<<<<< HEAD
-=======
-
->>>>>>> 843111651418a5b600d6a42efb46afb989c71a1c
-
-
-    <com.bootleggers.dumpster.preferences.SystemSettingMasterSwitchPreference
-        android:key="gaming_mode_enabled"
-        android:icon="@drawable/ic_gaming"
-        android:fragment="com.bootleggers.dumpster.fragments.GamingMode"
-        android:title="@string/gaming_mode_title"
-        android:summary="@string/gaming_mode_summary"
-        android:defaultValue="false" />
 
 </PreferenceScreen>
