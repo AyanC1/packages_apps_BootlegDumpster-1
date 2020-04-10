@@ -119,6 +119,10 @@
         android:key="system_category"
         android:summary="@string/system_category_summary"
         android:title="@string/system_category_title" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 843111651418a5b600d6a42efb46afb989c71a1c
 
 
     <com.bootleggers.dumpster.preferences.SystemSettingMasterSwitchPreference
