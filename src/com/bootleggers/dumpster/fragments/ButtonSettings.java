@@ -46,6 +46,8 @@ import com.bootleggers.dumpster.preferences.CustomSeekBarPreference;
 public class ButtonSettings extends ActionFragment implements
     Preference.OnPreferenceChangeListener {
 
+    private static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
+
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
 
     // category keys
@@ -69,7 +71,6 @@ public class ButtonSettings extends ActionFragment implements
     public static final int KEY_MASK_VOLUME = 0x40;
 
     private SwitchPreference mHwKeyDisable;
-    public class ButtonSettings extends ActionFragment implements
     private ListPreference mTorchPowerButton;
 
     @Override
